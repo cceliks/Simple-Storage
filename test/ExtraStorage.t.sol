@@ -14,8 +14,14 @@ contract ExtraStorageTest is Test {
 
         extraStorage.addPerson(name, favoriteNumber);
 
-        SimpleStorage.People memory person = extraStorage.getPerson(address(this));
-        assertEq(person.favoriteNumber, favoriteNumber + 5, "Favorite number should be incremented by 5");
+        SimpleStorage.People memory person = extraStorage.getPerson(
+            address(this)
+        );
+        assertEq(
+            person.favoriteNumber,
+            favoriteNumber + 5,
+            "Favorite number should be incremented by 5"
+        );
         assertEq(person.name, name, "Name should match");
     }
 }
